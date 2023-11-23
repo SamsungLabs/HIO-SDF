@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>hio_sdf</name>
+  <version>0.0.0</version>
+  <description>The HIO-SDF package</description>
+
+  <maintainer email="vasileios.v@samsung.com">vasileios.v</maintainer>
+
+  <license>TODO</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>rospy</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_export_depend>rospy</build_export_depend>
+  <build_export_depend>std_msgs</build_export_depend>
+  <build_depend>voxblox_msgs</build_depend>
+  <build_depend>visualization_msgs</build_depend>
+  <build_depend>message_generation</build_depend>
+
+  <exec_depend>rospy</exec_depend>
+  <exec_depend>std_msgs</exec_depend>
+  <exec_depend>nav_msgs</exec_depend>
+  <exec_depend>sensor_msgs</exec_depend>
+  <exec_depend>geometry_msgs</exec_depend>
+  <exec_depend>voxblox_msgs</exec_depend>
+  <exec_depend>tf</exec_depend>
+  <exec_depend>visualization_msgs</exec_depend>
+  <exec_depend>message_runtime</exec_depend>
+
+  <export>
+  </export>
+</package>

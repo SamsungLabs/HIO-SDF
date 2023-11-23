@@ -1,0 +1,13 @@
+#!/usr/bin/env python
+import rospy
+from dataset_adapter.dataset_adapter_node import DatasetAdapterNodeReplicaCAD, DatasetAdapterNodeScanNet
+    
+if __name__ == '__main__':
+
+    dataset = rospy.get_param('/dataset_adapter/dataset')
+    path_to_data = rospy.get_param('/dataset_adapter/path')
+
+    if dataset == 'ReplicaCAD':    
+        dataset_adapter_node = DatasetAdapterNodeReplicaCAD(path_to_data)
+    elif dataset == 'ScanNet':
+        dataset_adapter_node = DatasetAdapterNodeScanNet(path_to_data)

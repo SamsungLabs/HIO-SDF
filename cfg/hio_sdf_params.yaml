@@ -1,0 +1,61 @@
+# Frames and topics
+map_frame: 'map'
+coarse_sdf_topic: '/voxblox_node/esdf_map_out'
+pointcloud_topic: '/velodyne_points'
+
+# Main options
+device: 'cuda:0'
+use_local_sdf_data: True # If True coarse SDF data is aggregated with local raycasting-based SDF data, otherwise only coarse SDF data is used
+do_eval: False # Set to True if you want to run comparisons against the ground truth for a specific dataset (you will have to specify the "Evaluation parameters" below)
+save_mesh: True # Saves the mesh of the environment (SDF zero-level set) after each training iteration in the output folder
+save_slices: False # Saves slices of the SDF at pre-defined height intervals after each training iteration in the output folder
+publish_local_data: True # Publishes the current local point cloud-based 3D samples
+publish_sdf_data: False # Publishes a current slice from aggregated (discrete) SDF data at height sdf_slice_z
+publish_sdf_slices: True # Publishes current SDF slices from the (continuous) trained model at resolution visualization_resolution
+sdf_slice_z: 0.5 # Desired height of visualized coarse SDF slice
+sdf_visualization_resolution: 0.05 # Desired resolution for SDF slice visualization of trained model
+stream_weights_over_zmq: False # (Optional) Sets up a ZMQ server that can stream the most recent HIO-SDF weights
+
+# Voxfield parameters
+voxel_size: 0.1 # IMPORTANT: Make sure this matches your Voxfield configuration
+voxel_per_side: 8 # IMPORTANT: Make sure this matches your Voxfield configuration
+kEpsilon: 0.000001
+kNumDataPacketsPerVoxel: 2
+
+# Voxfield sampling parameters
+num_voxfield_samples_surface: 10000 # Max number of used Voxfield samples lying close to the surface for each training iteration
+num_voxfield_samples_freespace: 30000 # Max number of used Voxfield samples away from the surface for each training iteration
+
+# Parameters for local SDF sampling
+num_local_pcds: 1 # (Optional) If >1 a window of several local point cloud measurements are aggregated to a single local point cloud
+num_local_pcd_points: 50000 # Max number of points in local point cloud (point cloud is sub-sampled to this number)
+max_raycasting_distance: 6.0 # Maximum raycasting distance for local SDF samples
+truncation_distance: 0.2 # Truncation distance behind the observed point cloud for local SDF samples
+num_raycasting_points: 20 # Max number of sampled points along each ray
+num_local_samples: 20000 # Max number of local SDF samples for each training iteration
+
+# Training parameters
+learning_rate: 0.0004
+weight_decay: 0.012
+sdf_loss_weight: 5.0
+eikonal_loss_weight: 2.0
+warm_start_iters: 5
+epochs_warm_start: 50
+epochs_nominal: 10
+
+# Evaluation parameters
+gt_sdf_file: '/home/vasileiosv/gt_sdfs/apt_3/1cm/sdf.npy'
+sdf_transf_file: '/home/vasileiosv/gt_sdfs/apt_3/1cm/transform.txt'
+dataset_format: 'ReplicaCAD' # other formats are 'ScanNet' and 'SAIC-NY'
+scene: 'apt_3_nav'
+grid_resolution: 0.05 # Resolution of global regular grid used for evaluation
+eval_point_samples: 25000 # Maximum number of samples from the regular used for evaluation
+regular_grid_x_min: -20.0
+regular_grid_x_max: 20.0
+regular_grid_y_min: -20.0
+regular_grid_y_max: 20.0
+regular_grid_z_min: -1.0
+regular_grid_z_max: 4.0
+
+# Output path
+output_path: '/home/vasileiosv/global_sdf_results/hio_sdf/'

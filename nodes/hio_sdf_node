@@ -1,0 +1,6 @@
+#!/usr/bin/env python
+
+from hio_sdf.hio_sdf_node import HIOSDFNode
+
+if __name__ == '__main__':
+    hio_sdf_node = HIOSDFNode()

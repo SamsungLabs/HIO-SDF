@@ -1,0 +1,15 @@
+numpy
+trimesh
+autolab_core
+h5py
+pyrender
+pyglet==1.5.27
+python-fcl
+urdfpy
+open3d
+ipywidgets
+scipy 
+scikit-image 
+scikit-learn
+wheel
+zmq
