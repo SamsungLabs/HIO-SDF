@@ -4,7 +4,7 @@
 
 [**Paper**](https://arxiv.org/abs/2310.09463) | [**Project page**](https://samsunglabs.github.io/HIO-SDF-project-page/)
 
-This package includes the ROS implementation of "HIO-SDF: Hierarchical Incremental Online Signed Distance Fields", developed by Samsung Research (Samsung AI Center - New York).
+This package includes the ROS implementation of [HIO-SDF: Hierarchical Incremental Online Signed Distance Fields](https://arxiv.org/abs/2310.09463), developed by Samsung Research (Samsung AI Center - New York) and presented at ICRA 2024.
 
 ![Pipeline](misc/method.gif)
 
@@ -199,10 +199,10 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial 4.0 In
 If you find this work useful, please consider citing:
 
 ```
-@inproceedings{vasilopoulos2023hiosdf,
-  title={{HIO-SDF: Hierarchical Incremental Online Signed Distance Fields}},
-  author={Vasilopoulos, Vasileios and Garg, Suveer and Huh, Jinwook and Lee, Bhoram and Isler, Volkan},
-  booktitle={{arXiv:2310.09463}},
-  year={2023}
+@inproceedings{vasilopoulos_hiosdf_2024,
+  title = {{HIO-SDF: Hierarchical Incremental Online Signed Distance Fields}},
+  author = {Vasileios Vasilopoulos and Suveer Garg and Jinwook Huh and Bhoram Lee and Volkan Isler},
+  booktitle = {IEEE International Conference on Robotics and Automation},
+  year = {2024},
 }
 ```
